@@ -1,6 +1,6 @@
 set(HDRS
-        ${CMAKE_CURRENT_SOURCE_DIR}/DataTypes.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/LogDefines.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/../include/DataTypes.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/../include/LogDefines.h
 )
 set(SRCS
         ${CMAKE_CURRENT_SOURCE_DIR}/Main.cpp

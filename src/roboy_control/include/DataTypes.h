@@ -1,7 +1,7 @@
 #ifndef DATATYPES_H
 #define DATATYPES_H
 
-#include "CommonDefinitions.h"
+#include "common_utilities/CommonDefinitions.h"
 
 #include <QDebug>
 #include <QString>

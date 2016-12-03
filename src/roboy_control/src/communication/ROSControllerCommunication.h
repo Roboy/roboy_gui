@@ -5,7 +5,7 @@
 #ifndef ROBOY_CONTROL_ROSCONTROLLERHANDLE_H
 #define ROBOY_CONTROL_ROSCONTROLLERHANDLE_H
 
-#include <CommonDefinitions.h>
+#include <common_utilities/CommonDefinitions.h>
 #include <common_utilities/ControllerState.h>
 #include <common_utilities/SetTrajectory.h>
 #include <ros/node_handle.h>

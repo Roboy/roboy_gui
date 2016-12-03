@@ -2,10 +2,6 @@
 #define ROSMESSAGETRANSCEIVERSERVICE_H
 
 #include "IMasterCommunication.h"
-
-#include "common_utilities/Initialize.h"
-
-#include "common_utilities/ControllerState.h"
 //#include "controller_manager_msgs/SwitchController.h"
 //#include "controller_manager_msgs/UnloadController.h"
 
@@ -13,6 +9,8 @@
 #include "common_utilities/Steer.h"
 #include "common_utilities/Trajectory.h"
 #include "common_utilities/Record.h"
+#include "common_utilities/Initialize.h"
+#include "common_utilities/ControllerState.h"
 
 #include <ros/node_handle.h>
 #include "std_msgs/String.h"

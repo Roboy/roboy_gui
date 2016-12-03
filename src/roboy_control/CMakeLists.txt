@@ -1,19 +1,36 @@
+cmake_minimum_required(VERSION 2.8.3)
+project(roboy_control)
+
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/devel/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/devel/${PROJECT_NAME})
+
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g -fPIC")
+SET(CMAKE_BUILD_TYPE Debug)
+
+
+#==============================================================================
+# Dependencies
+#==============================================================================
 ## Find CATKIN/ROS
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  common_utilities
 )
 
-## Find QT
-## Minimum version requirements
-set(QT_MIN_VERSION "5.4.0")
+
+# includes in corresponding build directories
+#set(CMAKE_INCLUDE_CURRENT_DIR ON)
+# Instruct CMake to run moc automatically when needed.
+#set(CMAKE_AUTOMOC ON)
 
 ## Find Qt5
-find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
+find_package(Qt5 CONFIG REQUIRED COMPONENTS
              Core
 	         Widgets	
 	         Quick)
+
 
 add_subdirectory(src)
 
@@ -39,19 +56,23 @@ qt5_add_resources(MOC_RESOURCES ${ROBOY_RESOURCES}
  						 		$ENV{MATERIAL_DIR}/modules/MaterialQtQuick.qrc)
 
 catkin_package(
-   CATKIN_DEPENDS message_runtime
+   CATKIN_DEPENDS message_runtime common_utilities
 )
 
 ## Build Target
 include_directories(
-        ${CMAKE_CURRENT_SOURCE_DIR}/../common_utilities/include
+        include
         ${ROBOY_INCLUDE_DIRS}
         ${catkin_INCLUDE_DIRS}
-        ${QT_INCLUDE_DIR}
+        ${Qt5Widgets_INCLUDE_DIRS}
+		${Qt5Core_INCLUDE_DIRS}
+        ${Qt5Quick_INCLUDE_DIRS}
         ${CMAKE_CURRENT_BINARY_DIR}
 )
 
+#==============================================================================
+# Application
+#==============================================================================
 add_executable(roboy_control_node ${ROBOY_SOURCES} ${MOC_HDRS} ${MOC_RESOURCES})
 qt5_use_modules(roboy_control_node Core Widgets Quick)
-target_link_libraries(roboy_control_node ${catkin_LIBRARIES})
-add_dependencies(roboy_control_node common_utilities_generate_messages_cpp)
+target_link_libraries(roboy_control_node ${catkin_LIBRARIES} )
