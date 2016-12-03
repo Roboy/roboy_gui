@@ -76,3 +76,16 @@ include_directories(
 add_executable(roboy_control_node ${ROBOY_SOURCES} ${MOC_HDRS} ${MOC_RESOURCES})
 qt5_use_modules(roboy_control_node Core Widgets Quick)
 target_link_libraries(roboy_control_node ${catkin_LIBRARIES} )
+
+#==============================================================================
+# Installation
+#==============================================================================
+install(TARGETS
+        roboy_control_node
+	    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+install(FILES
+        package.xml
+        DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+)
