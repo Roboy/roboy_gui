@@ -1,12 +1,12 @@
-Source: roboy_control
+Source: roboy-gui
 Section: misc
 Priority: extra
 Maintainer: Simon Trendel <simon.trendel@tum.de>
 Build-Depends: debhelper (>= 9.0.0), ros-kinetic-cpp-common, ros-kinetic-rostime, ros-kinetic-roscpp-traits, ros-kinetic-roscpp-serialization, ros-kinetic-catkin, ros-kinetic-genmsg, ros-kinetic-genpy, ros-kinetic-message-runtime, ros-kinetic-gencpp, ros-kinetic-geneus, ros-kinetic-gennodejs, ros-kinetic-message-generation, ros-kinetic-rosbuild, ros-kinetic-rosconsole, ros-kinetic-std-msgs, ros-kinetic-rosgraph-msgs, ros-kinetic-xmlrpcpp, ros-kinetic-roscpp, ros-kinetic-rosgraph, ros-kinetic-rospack, ros-kinetic-roslib, ros-kinetic-rospy, qml-module-qtquick-controls, libqt5core5a, libqt5widgets5, libqt5quick5
-Homepage: http://github.com/Roboy/roboy_control
+Homepage: http://github.com/Roboy/roboy_gui
 Standards-Version: 3.9.7
 
-Package: roboy_control
+Package: roboy-gui
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, ros-kinetic-cpp-common, ros-kinetic-rostime, ros-kinetic-roscpp-traits, ros-kinetic-roscpp-serialization, ros-kinetic-catkin, ros-kinetic-genmsg, ros-kinetic-genpy, ros-kinetic-message-runtime, ros-kinetic-gencpp, ros-kinetic-geneus, ros-kinetic-gennodejs, ros-kinetic-message-generation, ros-kinetic-rosbuild, ros-kinetic-rosconsole, ros-kinetic-std-msgs, ros-kinetic-rosgraph-msgs, ros-kinetic-xmlrpcpp, ros-kinetic-roscpp, ros-kinetic-rosgraph, ros-kinetic-rospack, ros-kinetic-roslib, ros-kinetic-rospy, qml-module-qtquick-controls, libqt5core5a, libqt5widgets5, libqt5quick5
 Description: GUI for controlling roboy 
