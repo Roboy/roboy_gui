@@ -49,7 +49,7 @@ qt5_wrap_cpp(MOC_HDRS ${ROBOY_HEADERS})
 
 if(NOT DEFINED ENV{MATERIAL_DIR)
     message(STATUS "env variable MATERIAL_DIR not set, falling back to default")
-    set(ENV{MATERIAL_DIR} "~/Downloads/qml-material" )
+    set(ENV{MATERIAL_DIR} "/opt/qml-material" )
 endif(NOT DEFINED ENV{MATERIAL_DIR)
 
 ## Adding Material resources
