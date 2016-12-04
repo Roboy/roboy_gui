@@ -47,6 +47,11 @@ add_custom_target(dummy_target SOURCES ${ROBOY_HEADERS} ${ETC} ${DB})
 ## Generate Qt-Files (Mocs for Headers)
 qt5_wrap_cpp(MOC_HDRS ${ROBOY_HEADERS})
 
+if(NOT DEFINED ENV{MATERIAL_DIR)
+    message(STATUS "env variable MATERIAL_DIR not set, falling back to default")
+    set(ENV{MATERIAL_DIR} "~/Downloads/qml-material" )
+endif(NOT DEFINED ENV{MATERIAL_DIR)
+
 ## Adding Material resources
 qt5_add_resources(MOC_RESOURCES ${ROBOY_RESOURCES}
   								$ENV{MATERIAL_DIR}/modules/FontAwesome.qrc
