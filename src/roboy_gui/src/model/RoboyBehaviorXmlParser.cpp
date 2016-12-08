@@ -141,6 +141,7 @@ bool RoboyBehaviorXmlParser::readTrajectories(RoboyBehavior &behavior) {
         Trajectory trajectory;
         trajectory.m_controlMode = (ControlMode) controlMode;
         trajectory.m_sampleRate = sampleRate;
+        trajectory.m_id = behavior.m_metadata.m_ulBehaviorId;
 
         m_xmlReader.readNextStartElement();
 

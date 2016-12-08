@@ -41,6 +41,8 @@ public:
     bool handleEvent_recordBehavior();
     bool handleEvent_stopRecording();
 
+    int current_behaviour;
+
 public slots:
     // ControllerCommunication - Interface
     void slotControllerStatusUpdated(qint32 motorId);

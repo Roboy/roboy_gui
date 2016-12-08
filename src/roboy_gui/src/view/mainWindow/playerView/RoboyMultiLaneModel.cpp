@@ -63,11 +63,11 @@ qint8 RoboyMultiLaneModel::removeLane(qint32 index) {
  * @param laneIndex index of the lane where the RoboyBehaviorExecution should be inserted
  * @param lTimestamp timestamp at which the RoboyBehaviorExecution should be inserted
  * @param behavior RoboyBehavior for the RoboyBehaviorExecution
- * @return 0 for success, -1 if timestamp is no multiple of 100, -2 if behaviors would overlap
+ * @return 0 for success, -1 if timestamp is no multiple of 10, -2 if behaviors would overlap
  */
 qint8  RoboyMultiLaneModel::insertBehaviorExec(qint32 laneIndex, qint64 lTimestamp, RoboyBehavior behavior) {
-    /* the timestamp can only be a multiple of the sample rate which is 100ms */
-    if (lTimestamp%100 != 0) {
+    /* the timestamp can only be a multiple of the sample rate which is 10ms */
+    if (lTimestamp%10 != 0) {
         return -1;
     }
 

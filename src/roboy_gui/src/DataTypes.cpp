@@ -28,7 +28,7 @@ RoboyBehaviorPlan::RoboyBehaviorPlan(IModelService * modelService, const RoboyBe
         }
     }
 
-    m_sampleRate = 100;
+    m_sampleRate = 10;
 
     setStartTimestamp();
     setEndTimestamp();
@@ -105,6 +105,7 @@ bool RoboyBehaviorPlan::doFlattening() {
         // Initialize Motor-Trajectory Map with defaul Values WAYPOINT_DEFAULT
         for(qint32 motorId : execution.behavior.m_mapMotorTrajectory.keys()) {
             if(!m_mapMotorTrajectories.contains(motorId)){
+                trajectory.m_id = execution.behavior.m_metadata.m_ulBehaviorId;
                 trajectory.m_listWaypoints.clear();
                 for(int i = 0; i < waypointCount; i++) {
                     trajectory.m_listWaypoints.append(waypoint);

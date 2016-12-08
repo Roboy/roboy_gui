@@ -59,7 +59,7 @@ void ViewController::pauseBehaviorPlan() {
 
 // RecorderView - Interface
 void ViewController::recordBehavior() {
-    DataPool::getInstance()->setSampleRate(100.0);
+    DataPool::getInstance()->setSampleRate(10.0);
     emit signalRecord();
 }
 

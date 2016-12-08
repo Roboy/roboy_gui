@@ -47,7 +47,7 @@ void RoboyController::slotInitializeRoboy() {
         delete m_pMyoController;
 
     m_pMyoController = new MyoController();
-    msleep(1000);
+//    msleep(1000);
 
 
     if(m_pMyoController->handleEvent_initializeControllers())
@@ -117,6 +117,7 @@ void RoboyController::preprocessCurrentRoboyPlan() {
         CONTROLLER_SUC << "Flattening of Plan successful";
         if(m_pMyoController->handleEvent_preprocessRoboyPlan(plan)) {
             CONTROLLER_SUC << "Plan is ready to be executed on Roboy";
+            m_pMyoController->current_behaviour = metaplan.listExecutions.first().behaviorMetadata.m_ulBehaviorId;
         } else {
             CONTROLLER_WAR << "Damn. Something went wrong sending the plan. See MyoController-Log";
             DataPool::getInstance()->setPlayerState(PlayerState::PLAYER_PREPROCESS_FAILED_COMMUNICATION_TIMEOUT);

@@ -35,7 +35,7 @@ void myMessageOutput(QtMsgType type,  const QMessageLogContext &context, const Q
 int main(int argc, char ** argv) {
     qInstallMessageHandler(myMessageOutput);
 
-    ros::init(argc, argv, "roboy_control");
+    ros::init(argc, argv, "roboy_gui");
     ros::NodeHandle n;
 
     QApplication app(argc, argv);
@@ -57,7 +57,7 @@ void initializeDatabase() {
     behavior.m_metadata = metadata;
     Trajectory trajectory;
     trajectory.m_controlMode = ControlMode::POSITION_CONTROL;
-    trajectory.m_sampleRate = 100;
+    trajectory.m_sampleRate = 10;
     RoboyWaypoint wp;
     for(int i = 0; i < 20; i++) {
         wp.m_ulValue = i * 2;

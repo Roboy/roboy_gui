@@ -80,17 +80,17 @@ bool MyoController::handleEvent_preprocessRoboyPlan(RoboyBehaviorPlan & behavior
 }
 
 bool MyoController::handleEvent_playPlanExecution() {
-    m_myoMasterTransceiver->sendSteeringMessage(SteeringCommand::PLAY_TRAJECTORY);
+    m_myoMasterTransceiver->sendSteeringMessage(SteeringCommand::PLAY_TRAJECTORY,current_behaviour);
     DataPool::getInstance()->setPlayerState(PlayerState::PLAYER_PLAYING);
 }
 
 bool MyoController::handleEvent_pausePlanExecution() {
-    m_myoMasterTransceiver->sendSteeringMessage(SteeringCommand::PAUSE_TRAJECTORY);
+    m_myoMasterTransceiver->sendSteeringMessage(SteeringCommand::PAUSE_TRAJECTORY,current_behaviour);
     DataPool::getInstance()->setPlayerState(PlayerState::PLAYER_PAUSED);
 }
 
 bool MyoController::handleEvent_stopPlanExecution() {
-    m_myoMasterTransceiver->sendSteeringMessage(SteeringCommand::STOP_TRAJECTORY);
+    m_myoMasterTransceiver->sendSteeringMessage(SteeringCommand::STOP_TRAJECTORY,current_behaviour);
     DataPool::getInstance()->setPlayerState(PlayerState::PLAYER_TRAJECTORY_READY);
 }
 

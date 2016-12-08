@@ -30,6 +30,7 @@ void ROSMasterCommunication::eventHandle_sendInitializeRequest() {
 
 void ROSMasterCommunication::eventHandle_sendSteeringMessage() {
     common_utilities::Steer steer;
+    steer.id = m_id;
     steer.steeringCommand = m_steeringCommand;
 
     ros::Rate rollRate(10);

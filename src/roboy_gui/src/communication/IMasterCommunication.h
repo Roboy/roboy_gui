@@ -21,6 +21,7 @@ protected:
 
     QMutex                          m_mutexData;
     QList<ROSController *>          m_initializationList;
+    qint32                          m_id;
     SteeringCommand                 m_steeringCommand;
     QMap<qint32, ROSController *>   m_recordRequest;
     qint32                           m_sampleRate = 0.0;
@@ -106,8 +107,9 @@ public:
         m_mutexCV.unlock();
     }
 
-    void sendSteeringMessage(SteeringCommand command) {
+    void sendSteeringMessage(SteeringCommand command, int id) {
         m_mutexData.lock();
+        m_id = id;
         m_steeringCommand = command;
         m_mutexData.unlock();
 

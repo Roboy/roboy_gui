@@ -68,7 +68,7 @@ class RecorderStateClass : public QObject
 typedef RecorderStateClass::RecorderState RecorderState;
 
 struct RoboyBehaviorMetadata {
-    quint64   m_ulBehaviorId;
+    quint32   m_ulBehaviorId;
     QString   m_sBehaviorName;
 };
 
@@ -79,6 +79,7 @@ struct RoboyWaypoint {
 struct Trajectory {
     ControlMode           m_controlMode;
     qint32                m_sampleRate;
+    qint32                m_id;
     QList<RoboyWaypoint>  m_listWaypoints;
     qint32 getDuration() {
         return m_listWaypoints.count() * m_sampleRate;
@@ -86,7 +87,8 @@ struct Trajectory {
 
     QString toString() const {
         QString string;
-        string.sprintf("TRAJECTORY [controlMode:%i][sampleRate:%i][wp-count:%i]",
+        string.sprintf("TRAJECTORY [id:%i][controlMode:%i][sampleRate:%i][wp-count:%i]",
+                       (int) m_id,
                        (int) m_controlMode,
                        (int) m_sampleRate,
                        m_listWaypoints.size());
