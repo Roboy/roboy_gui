@@ -11,6 +11,8 @@ RecorderView::RecorderView(IModelService * pModelService, ViewController * pView
 	m_pViewController       = pViewController;
     m_pModelService         = pModelService;
     m_pAppEngine            = pAppEngine;
+    /* initialize random seed: */
+    srand (time(NULL));
 }
 
 /**
@@ -90,7 +92,7 @@ void RecorderView::saveRecorderBehavior(QString behaviorName) {
 	if(DataPool::getInstance()->getRecordResult()) {
         RoboyBehavior * behavior = DataPool::getInstance()->getRecordedBehavior();
         behavior->m_metadata.m_sBehaviorName = behaviorName;
-        behavior->m_metadata.m_ulBehaviorId = 200;
+        behavior->m_metadata.m_ulBehaviorId = rand() % 100000;
         for (auto id : behavior->m_mapMotorTrajectory.keys()) {
             if(behavior->m_mapMotorTrajectory[id].m_listWaypoints.isEmpty())
                 behavior->m_mapMotorTrajectory.remove(id);
