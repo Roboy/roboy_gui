@@ -1,4 +1,4 @@
-roboy-gui (0.0.1-1) xenial; urgency=low
+roboy-gui (VERSION) xenial; urgency=low
 
   * Initial release 
 

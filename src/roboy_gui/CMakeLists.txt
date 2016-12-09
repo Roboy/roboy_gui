@@ -87,7 +87,7 @@ target_link_libraries(roboy_gui ${catkin_LIBRARIES} )
 #==============================================================================
 install(TARGETS
         roboy_gui
-	    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+        DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
 install(FILES
