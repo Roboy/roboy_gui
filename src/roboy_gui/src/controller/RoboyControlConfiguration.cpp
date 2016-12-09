@@ -12,17 +12,17 @@ void RoboyControlConfiguration::readConfig() {
     m_listControllerConfig.clear();
     m_mapModelConfig.clear();
 
-    QString roboyControlHome = QProcessEnvironment::systemEnvironment().value("ROBOY_CONTROL_HOME");
-    if (roboyControlHome == "") {
+    QString roboyConfigDir = QProcessEnvironment::systemEnvironment().value("ROBOY_CONFIG_DIR");
+    if (roboyConfigDir == "") {
         CONFIG_DBG << " - ERROR: Environment Variable not set.";
-        CONFIG_DBG << "Set the environment variable ROBOY_CONTROL_HOME to the installation"
-                "directory of RoboyControl. Add the line\n"
-                "\texport ROBOY_CONTROL_HOME=<path_to_roboy_control>"
+        CONFIG_DBG << "Set the environment variable ROBOY_CONFIG_DIR to the installation"
+                "directory of roboy_gui, ie to the path where I can find RoboyControlConfig.xml. Add the line\n"
+                "\texport ROBOY_CONFIG_DIR=<path_to_roboy_control_config_dir>"
                 "to your ~/.bash_rc file.";
         exit(0);
     }
 
-    QString filename = roboyControlHome + "/etc/" + CONFIG_FILE_NAME;
+    QString filename = roboyConfigDir + "/" + CONFIG_FILE_NAME;
     QFile configFile(filename);
 
     if( !configFile.open(QFile::ReadOnly | QFile::Text) ) {
