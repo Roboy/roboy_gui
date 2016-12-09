@@ -55,7 +55,7 @@ void RoboyControlConfiguration::readConfig() {
 
 void RoboyControlConfiguration::readModelConfig() {
     for (QXmlStreamAttribute attribute : m_xmlReader.attributes()) {
-        m_mapModelConfig.insert(attribute.name().toString(), attribute.value().toString());
+        m_mapModelConfig.insert(attribute.name().toString(),  QDir::homePath() + "/.roboy_gui/" + attribute.value().toString());
     }
     m_xmlReader.readElementText();
 }

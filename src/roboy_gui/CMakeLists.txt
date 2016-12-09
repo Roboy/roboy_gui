@@ -94,3 +94,8 @@ install(FILES
         package.xml
         DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
+
+install(DIRECTORY
+        etc/
+        DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+)
