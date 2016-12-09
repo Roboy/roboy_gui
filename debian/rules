@@ -43,5 +43,6 @@ override_dh_auto_install:
 	# in the install tree that was dropped by catkin, and source it.  It will
 	# set things like CMAKE_PREFIX_PATH, PKG_CONFIG_PATH, and PYTHONPATH.
 	if [ -f "/opt/ros/kinetic/setup.sh" ]; then . "/opt/ros/kinetic/setup.sh"; fi && \
-	catkin_make_isolated --pkg=roboy_gui --install --install-space=${CURDIR}/debian/roboy-gui/opt/ros/kinetic -DCMAKE_BUILD_TYPE=Release
+	catkin_make_isolated --install --install-space=${CURDIR}/debian/roboy-gui/opt/ros/kinetic -DCMAKE_BUILD_TYPE=Release
 	find ${CURDIR}/debian/roboy-gui/opt/ros/kinetic -type f -maxdepth 1 -delete
+	rm ${CURDIR}/debian/roboy-gui/opt/ros/kinetic/share/gennodejs/ros/common_utilities -r
