@@ -45,4 +45,4 @@ override_dh_auto_install:
 	if [ -f "/opt/ros/kinetic/setup.sh" ]; then . "/opt/ros/kinetic/setup.sh"; fi && \
 	catkin_make_isolated --install --install-space=${CURDIR}/debian/roboy-gui/opt/ros/kinetic -DCMAKE_BUILD_TYPE=Release
 	find ${CURDIR}/debian/roboy-gui/opt/ros/kinetic -type f -maxdepth 1 -delete
-	rm -r ${CURDIR}/debian/roboy-gui/opt/ros/kinetic/share/roseus/ros/common_utilities ${CURDIR}/debian/roboy-gui/opt/ros/kinetic/lib/python2.7/dist-packages/common_utilities ${CURDIR}/debian/roboy-gui/opt/ros/kinetic/lib/pkgconfig/common_utilities.pc ${CURDIR}/debian/roboy-gui/opt/ros/kinetic/include/common_utilities ${CURDIR}/debian/roboy-gui/opt/ros/kinetic/share/gennodejs/ros/common_utilities 
+	rm -r ${CURDIR}/debian/roboy-gui/opt/ros/kinetic/share/roseus/ros/common_utilities ${CURDIR}/debian/roboy-gui/opt/ros/kinetic/lib/python2.7/dist-packages/common_utilities ${CURDIR}/debian/roboy-gui/opt/ros/kinetic/lib/pkgconfig/common_utilities.pc ${CURDIR}/debian/roboy-gui/opt/ros/kinetic/include/common_utilities ${CURDIR}/debian/roboy-gui/opt/ros/kinetic/share/gennodejs/ros/common_utilities ${CURDIR}/debian/roboy-gui/opt/ros/kinetic/share/common_utilities 
